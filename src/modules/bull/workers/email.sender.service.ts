@@ -1,9 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { createTransport } from 'nodemailer';
+import { EmailService } from './emailservice.abstract.';
 
 @Injectable()
-export class EmailSenderService {
+export class EmailSenderService implements EmailService {
   private readonly transporter;
   constructor(private readonly configService: ConfigService) {
     this.transporter = createTransport({

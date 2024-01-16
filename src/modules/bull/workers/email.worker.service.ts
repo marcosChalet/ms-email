@@ -1,15 +1,14 @@
 import { Job } from 'bullmq';
 import { Injectable, Logger } from '@nestjs/common';
-// import { EmailService } from './email.service.interface';
+import { EmailService } from './emailservice.abstract.';
 import { OnQueueError, Process, Processor } from '@nestjs/bull';
-import { EmailSenderService } from './email.sender.service';
 
 @Injectable()
 @Processor('emailQueue')
 export class EmailWorkerService {
   private readonly logger = new Logger(EmailWorkerService.name);
 
-  constructor(private readonly emailService: EmailSenderService) {}
+  constructor(private readonly emailService: EmailService) {}
 
   @Process('@email')
   async sendEmailJob(job: { data: any }): Promise<void> {

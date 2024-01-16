@@ -1,5 +1,11 @@
-import { Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { EmailService } from './email.service';
+
+type BodyType = {
+  name: string;
+  emailTo: string;
+  message: string;
+};
 
 @Controller()
 export class EmailController {
@@ -11,7 +17,8 @@ export class EmailController {
   }
 
   @Post('send')
-  sendEmail() {
-    return this.emailService.sendEmail('Marcos', 'Bom dia!');
+  sendEmail(@Body() { name, emailTo, message }: BodyType) {
+    // console.log('body', name, emailTo, message);
+    return this.emailService.sendEmail(name, message, emailTo);
   }
 }

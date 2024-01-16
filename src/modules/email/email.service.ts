@@ -15,11 +15,11 @@ export class EmailService {
     @InjectQueue('emailQueue') private readonly emailQueue: Queue,
   ) {}
 
-  async sendEmail(name: string, message: string) {
+  async sendEmail(name: string, message: string, emailTo: string) {
     try {
       const emailData = await this.emailUtils.createEmail(
         this.emailFrom,
-        this.emailTo,
+        emailTo,
         name,
         message,
       );

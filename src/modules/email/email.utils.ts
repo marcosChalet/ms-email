@@ -46,7 +46,7 @@ export class EmailUtils {
     return {
       from,
       to,
-      subject: 'Message from Chalet Shoes',
+      subject: 'Confirmação do pedido | Chalet Shoes',
       text: `${message} | Sent by ${from}`,
       html,
     };

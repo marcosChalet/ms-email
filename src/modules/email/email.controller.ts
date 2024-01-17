@@ -18,7 +18,6 @@ export class EmailController {
 
   @Post('send')
   sendEmail(@Body() { name, emailTo, message }: BodyType) {
-    // console.log('body', name, emailTo, message);
     return this.emailService.sendEmail(name, message, emailTo);
   }
 }

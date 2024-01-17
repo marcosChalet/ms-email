@@ -52,39 +52,3 @@ export class EmailUtils {
     };
   }
 }
-
-// import { Injectable } from '@nestjs/common';
-// import { readFileSync } from 'fs';
-// import mustache from 'mustache';
-
-// @Injectable()
-// export class EmailUtils {
-//   template = readFileSync(
-//     'src/modules/email/templates/order-confirmed.html',
-//     'utf8',
-//   );
-
-//   createEmail(from: string, to: string, name: string, message: string) {
-//     console.log(this.template, {
-//       name,
-//       message,
-//       emailRemetente: from,
-//     });
-
-//     const html = mustache.render(this.template, {
-//       name,
-//       message,
-//       emailRemetente: from,
-//     });
-
-//     console.log('html:', html);
-
-//     return {
-//       from,
-//       to,
-//       subject: `Message from Chalet Shoes`,
-//       text: message + ' | Sent by ' + from,
-//       html,
-//     };
-//   }
-// }

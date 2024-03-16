@@ -14,13 +14,14 @@ services:
       context: .
     restart: always
     ports:
-      - 3000:3000
+      - 3001:3000
     environment:
       - EMAIL_FROM=mchaletmail@gmail.com
       - EMAIL_TO=chaletmarcos@gmail.com
       - EMAIL_PASSWORD=lvbwatxhzszckxec
       - REDIS_HOST=redis-cache
       - REDIS_PORT=6379
+      - RMQ_URLS=amqp://192.168.18.6:5672
       - NPM_RUN_COMMAND=npm run start:dev
     depends_on:
       - redis-cache
